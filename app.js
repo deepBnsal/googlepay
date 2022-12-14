@@ -1,7 +1,7 @@
 const express = require('express');
 var QRCode = require('qrcode')
 const app = express()
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
     QRCode.toDataURL('“Your A/C XXXXX has a debit by transfer of Rs 1000.00 on 12/14/2022.” This message just came to me from my SBI account', function (err, url) {
