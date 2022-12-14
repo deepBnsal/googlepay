@@ -1,5 +1,6 @@
 const express = require('express');
 var QRCode = require('qrcode')
+const serverless = require('serverless-http');
 const app = express()
 const PORT = process.env.PORT || 8000;
 
@@ -18,3 +19,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
     console.log(`App Listen on : http://localhost:${PORT}`)
 })
+
+module.exports.handler = serverless(app);
